@@ -1,0 +1,23 @@
+commit 42c00522a1ebc84bd7a409dd85b766ac3ad8bbea
+Author: antonijav5 <vasiljevicantonija@gmail.com>
+Date:   Wed May 28 21:22:09 2025 +0200
+
+    Adding test files!
+
+commit af086a7055d684e3c1caff1aea6bb2537f7b64c8
+Author: antonijav5 <vasiljevicantonija@gmail.com>
+Date:   Wed May 28 21:11:59 2025 +0200
+
+    Stilization - help from AI
+
+commit ea8a5633512947750ae5783d371b199a09076a15
+Author: antonijav5 <vasiljevicantonija@gmail.com>
+Date:   Wed May 28 20:11:37 2025 +0200
+
+    Next
+
+commit 67553122fe889a1241c5596ac857357a8e3b8147
+Author: antonijav5 <vasiljevicantonija@gmail.com>
+Date:   Wed May 28 20:10:54 2025 +0200
+
+    Without editing

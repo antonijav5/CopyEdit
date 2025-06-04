@@ -1,0 +1,73 @@
+<div class="kanban-board">
+  <div class="task-input">
+    <div class="input-group">
+      <input 
+        [(ngModel)]="newTaskTitle"
+        (keyup.enter)="addTask()"
+        placeholder="Enter new task..."
+        class="task-input-field">
+      <button (click)="addTask()" [disabled]="!newTaskTitle.trim()" class="add-btn">
+        Add Task
+      </button>
+    </div>
+  </div>
+
+  <div class="board-columns">
+    <div class="column">
+      <h3>To Do</h3>
+      <div 
+        cdkDropList
+        id="todo-list"
+        [cdkDropListData]="(todoTasks$ | async) || []"
+        [cdkDropListConnectedTo]="['in-progress-list', 'done-list']"
+        (cdkDropListDropped)="onDrop($event)"
+        class="task-list">
+        <app-task-card 
+          *ngFor="let task of (todoTasks$ | async) || []; trackBy: trackByTaskId"
+          [task]="task"
+          (updateTask)="updateTask($event)"
+          (deleteTask)="deleteTask($event)"
+          cdkDrag>
+        </app-task-card>
+      </div>
+    </div>
+
+    <div class="column">
+      <h3>In Progress</h3>
+      <div 
+        cdkDropList
+        id="in-progress-list"
+        [cdkDropListData]="(inProgressTasks$ | async) || []"
+        [cdkDropListConnectedTo]="['todo-list', 'done-list']"
+        (cdkDropListDropped)="onDrop($event)"
+        class="task-list">
+        <app-task-card 
+          *ngFor="let task of (inProgressTasks$ | async) || []; trackBy: trackByTaskId"
+          [task]="task"
+          (updateTask)="updateTask($event)"
+          (deleteTask)="deleteTask($event)"
+          cdkDrag>
+        </app-task-card>
+      </div>
+    </div>
+
+    <div class="column">
+      <h3>Done</h3>
+      <div 
+        cdkDropList
+        id="done-list"
+        [cdkDropListData]="(doneTasks$ | async) || []"
+        [cdkDropListConnectedTo]="['todo-list', 'in-progress-list']"
+        (cdkDropListDropped)="onDrop($event)"
+        class="task-list">
+        <app-task-card 
+          *ngFor="let task of (doneTasks$ | async) || []; trackBy: trackByTaskId"
+          [task]="task"
+          (updateTask)="updateTask($event)"
+          (deleteTask)="deleteTask($event)"
+          cdkDrag>
+        </app-task-card>
+      </div>
+    </div>
+  </div>
+</div>

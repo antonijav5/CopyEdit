@@ -1,0 +1,35 @@
+<div class="task-card" [class.loading]="task.loadingPriority">
+  <div *ngIf="isEditing" class="edit-mode">
+    <input 
+      [(ngModel)]="editTitle" 
+      (keyup.enter)="saveEdit()"
+      (keyup.escape)="cancelEdit()"
+      class="edit-input"
+      #editInput>
+    <div class="edit-actions">
+      <button (click)="saveEdit()" class="save-btn">Save</button>
+      <button (click)="cancelEdit()" class="cancel-btn">Cancel</button>
+    </div>
+  </div>
+
+  <div *ngIf="!isEditing" class="view-mode">
+    <h4 (click)="startEdit()" class="task-title">{{ task.title }}</h4>
+    
+    <div class="priority-section">
+      <span *ngIf="task.loadingPriority" class="loading-spinner">
+        🔄 Loading priority...
+      </span>
+      <span *ngIf="task.priority && !task.loadingPriority" 
+            class="priority-badge" 
+            [ngClass]="getPriorityClass()">
+        Priority: {{ task.priority }}
+      </span>
+      <span *ngIf="task.errorPriority" class="error-badge">
+        ⚠️ {{ task.errorPriority }}
+      </span>
+          <button (click)="onDelete()" class="delete-btn">🗑️ Delete</button>
+    </div>
+
+
+  </div>
+</div>
