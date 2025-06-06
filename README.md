@@ -1,6 +1,7 @@
 # TaskFlow - Mini Kanban Board
 
 A production-ready Kanban board application built with Angular 17, NgRx, and Angular CDK with AI-powered task prioritization.
+Check it out at **https://antonijav5.github.io/TaskFlow-Mini-Kanban-Board/**
 
 ## Features
 
